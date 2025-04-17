@@ -1,78 +1,329 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contenedores</title>
+  <title>Contenedores | Guía Web</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #004080;
+      --secondary: #6c757d;
+    }
     body {
-      background-color: #f2f6fc;
       font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
     }
     .navbar {
-      background-color: #004080;
+      background-color: var(--primary);
     }
-    .navbar-brand, .nav-link, .footer {
-      color: white !important;
+    .hero {
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://source.unsplash.com/1600x900/?docker,container,cloud') no-repeat center center;
+      background-size: cover;
+      color: white;
     }
-    .content {
+    .card {
+      border: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .badge-custom {
+      background-color: var(--primary);
+    }
+    .tab-content {
+      border-left: 1px solid #dee2e6;
+      border-right: 1px solid #dee2e6;
+      border-bottom: 1px solid #dee2e6;
       padding: 2rem;
     }
-    h1, h2 {
-      color: #004080;
+    .img-tech {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 5px;
+    }
+    pre {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .command-box {
+      background-color: #2d2d2d;
+      color: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: monospace;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg">
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Guía Web</a>
-      <div class="collapse navbar-collapse">
+      <a class="navbar-brand fw-bold" href="index.html">Guía Web</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="webapis.html">Web APIs</a></li>
           <li class="nav-item"><a class="nav-link" href="microservicios.html">Microservicios</a></li>
           <li class="nav-item"><a class="nav-link" href="webapi-dev.html">Desarrollo API</a></li>
-          <li class="nav-item"><a class="nav-link" href="contenedores.html">Contenedores</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contenedores.html">Contenedores</a></li>
           <li class="nav-item"><a class="nav-link" href="nube.html">Aplicaciones en la Nube</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container content">
-    <h1>¿Qué son los Contenedores?</h1>
-    <p>Los contenedores son una forma de empaquetar una aplicación y todas sus dependencias para que pueda ejecutarse de manera uniforme y confiable en cualquier entorno. Son una alternativa ligera a las máquinas virtuales.</p>
+  <header class="hero text-white py-5 mb-5">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Tecnología de Contenedores</h1>
+      <p class="lead">Empaqueta, distribuye y ejecuta aplicaciones en cualquier entorno de forma consistente</p>
+    </div>
+  </header>
 
-<img src="https://www.ionos.mx/digitalguide/fileadmin/DigitalGuide/Schaubilder/maquinas-virtuales-vs-contenedores-docker.png" alt="Contenedores Docker" class="img-fluid rounded my-3 shadow">
-    <h2>Ventajas de los contenedores</h2>
-    <ul>
-      <li><strong>Portabilidad:</strong> Se ejecutan igual en cualquier sistema que tenga el motor de contenedores.</li>
-      <li><strong>Eficiencia:</strong> Consumen menos recursos que las máquinas virtuales.</li>
-      <li><strong>Escalabilidad:</strong> Fácil de replicar o escalar en sistemas grandes.</li>
-    </ul>
+  <div class="container">
+    <section class="mb-5">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="mb-0">¿Qué son los Contenedores?</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="lead">Los contenedores son una forma de empaquetar una aplicación y todas sus dependencias para que pueda ejecutarse de manera uniforme y confiable en cualquier entorno. Son una alternativa ligera a las máquinas virtuales.</p>
+              
+              <div class="mt-4">
+                <h4>Comparación con Máquinas Virtuales</h4>
+                <p>Los contenedores comparten el kernel del sistema operativo anfitrión, lo que los hace mucho más ligeros y rápidos que las máquinas virtuales tradicionales.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <img src="https://www.ionos.mx/digitalguide/fileadmin/DigitalGuide/Schaubilder/maquinas-virtuales-vs-contenedores-docker.png" alt="Contenedores Docker" class="img-fluid img-tech">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2>Herramientas comunes</h2>
-    <ul>
-      <li><strong>Docker:</strong> La plataforma más usada para crear y gestionar contenedores.</li>
-      <li><strong>Kubernetes:</strong> Sistema para orquestar múltiples contenedores a gran escala.</li>
-    </ul>
+    <section id="advantages" class="mb-5">
+      <div class="card">
+        <div class="card-header bg-success text-white">
+          <h2 class="mb-0">Ventajas de los Contenedores</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <h3 class="text-primary">🚀 Portabilidad</h3>
+                  <p>Se ejecutan igual en cualquier sistema que tenga el motor de contenedores (desarrollo, pruebas, producción).</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <h3 class="text-primary">⚡ Eficiencia</h3>
+                  <p>Consumen menos recursos que las máquinas virtuales al compartir el kernel del sistema operativo.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <h3 class="text-primary">📈 Escalabilidad</h3>
+                  <p>Fácil de replicar o escalar en sistemas grandes, ideal para arquitecturas de microservicios.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-info text-white">
+                  Otras ventajas clave
+                </div>
+                <div class="card-body">
+                  <ul>
+                    <li><strong>Aislamiento:</strong> Cada contenedor corre en su propio espacio aislado</li>
+                    <li><strong>Velocidad:</strong> Inicio en segundos frente a minutos de las VMs</li>
+                    <li><strong>Consistencia:</strong> Mismo entorno en desarrollo, pruebas y producción</li>
+                    <li><strong>Densidad:</strong> Puedes ejecutar más contenedores que VMs en el mismo hardware</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-warning text-dark">
+                  Casos de uso comunes
+                </div>
+                <div class="card-body">
+                  <ul>
+                    <li>Desarrollo y pruebas consistentes</li>
+                    <li>Implementación de microservicios</li>
+                    <li>Migración de aplicaciones legacy</li>
+                    <li>CI/CD pipelines</li>
+                    <li>Aplicaciones multi-nube</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2>Ejemplo</h2>
-    <p>Una aplicación web puede ejecutarse dentro de un contenedor Docker que tenga instalado Node.js, y así podrá correr igual en Windows, Linux o la nube.</p>
-    
-    <h3 class="mt-4">Video: Docker en 5 minutos</h3>
-    <div class="ratio ratio-16x9 my-4">
-      <iframe 
-        src="https://www.youtube.com/embed/3lY1XxjxPaM?si=ptOe4TuxlA-tFwvi" 
-        title="Docker explicado" 
-        allowfullscreen>
-      </iframe>
-    </div> 
-</div>
+    <section id="tools" class="mb-5">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">
+          <h2 class="mb-0">Ecosistema de Contenedores</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Herramientas principales</h3>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="d-flex align-items-center mb-3">
+                    <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png" alt="Docker" style="height: 40px; margin-right: 15px;">
+                    <h4 class="mb-0">Docker</h4>
+                  </div>
+                  <p>La plataforma más popular para crear, compartir y ejecutar contenedores. Incluye:</p>
+                  <ul>
+                    <li>Docker Engine: runtime para contenedores</li>
+                    <li>Docker Hub: repositorio de imágenes</li>
+                    <li>Docker Compose: para aplicaciones multi-contenedor</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center mb-3">
+                    <img src="https://1000marcas.net/wp-content/uploads/2022/07/Kubernetes-Logo.png" alt="Kubernetes" style="height: 30px; margin-right: 15px;">
+                    <h4 class="mb-0">Kubernetes (K8s)</h4>
+                  </div>
+                  <p>Sistema de orquestación para automatizar el despliegue, escalado y gestión de contenedores.</p>
+                  <ul>
+                    <li>Escalado automático</li>
+                    <li>Auto-reparación</li>
+                    <li>Balanceo de carga</li>
+                    <li>Gestión de secretos y configuraciones</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h3>Ejemplo práctico</h3>
+              <div class="card h-100">
+                <div class="card-body">
+                  <p>Una aplicación web puede ejecutarse dentro de un contenedor Docker que tenga instalado Node.js, y así podrá correr igual en Windows, Linux o la nube.</p>
+                  
+                  <h5 class="mt-4">Comandos Docker básicos</h5>
+                  <div class="command-box">
+                    # Descargar una imagen<br>
+                    docker pull node:14
+                  </div>
+                  <div class="command-box">
+                    # Ejecutar un contenedor<br>
+                    docker run -d -p 3000:3000 --name myapp node:14
+                  </div>
+                  <div class="command-box">
+                    # Ver contenedores en ejecución<br>
+                    docker ps
+                  </div>
+                  
+                  <div class="alert alert-info mt-3">
+                    <strong>Dockerfile:</strong> Archivo de configuración que define cómo construir una imagen personalizada.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <footer class="footer">
-    <p>&copy; 2025 Jennifer - Proyecto Web</p>
+    <section class="mb-5">
+      <div class="card">
+        <div class="card-header bg-info text-white">
+          <h2 class="mb-0">Video: Docker en 5 minutos</h2>
+        </div>
+        <div class="card-body">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/3lY1XxjxPaM?si=ptOe4TuxlA-tFwvi" title="Docker explicado" allowfullscreen></iframe>
+          </div>
+          
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-primary text-white">
+                  Recursos adicionales
+                </div>
+                <div class="card-body">
+                  <ul>
+                    <li><a href="https://docs.docker.com/" target="_blank">Documentación oficial de Docker</a></li>
+                    <li><a href="https://kubernetes.io/docs/home/" target="_blank">Documentación de Kubernetes</a></li>
+                    <li><a href="https://www.docker.com/products/docker-hub" target="_blank">Docker Hub (repositorio de imágenes)</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-success text-white">
+                  Próximos pasos
+                </div>
+                <div class="card-body">
+                  <ol>
+                    <li>Instalar Docker Desktop</li>
+                    <li>Ejecutar tu primer contenedor</li>
+                    <li>Crear tu propio Dockerfile</li>
+                    <li>Explorar Docker Compose</li>
+                    <li>Aprender Kubernetes básico</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Recursos Adicionales</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://docs.docker.com/" class="text-white">Documentación Docker</a></li>
+            <li><a href="https://kubernetes.io/docs/home/" class="text-white">Guías de Kubernetes</a></li>
+            <li><a href="https://kinsta.com/es/blog/seguridad-docker/" class="text-white">Buenas prácticas de contenedores</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h5>Enlaces del Proyecto</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://github.com/jenncast01/Proyecto2" class="text-white">Repositorio GitHub</a></li>
+            <li><a href="https://jenncast01.github.io/Proyecto2/" class="text-white">Sitio en Producción</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="text-center mb-0">&copy; 2025 Jennifer - Proyecto Web</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

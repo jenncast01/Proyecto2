@@ -3,35 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Microservicios</title>
+  <title>Microservicios | Guía Web</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #004080;
+      --secondary: #6c757d;
+    }
     body {
-      background-color: #f2f6fc;
       font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
     }
     .navbar {
-      background-color: #004080;
+      background-color: var(--primary);
     }
-    .navbar-brand, .nav-link, .footer {
-      color: white !important;
+    .hero {
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?microservices,code');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+    .card {
+      border: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
     }
-    .content {
-      padding: 2rem;
+    .card:hover {
+      transform: translateY(-5px);
     }
-    h1, h2 {
-      color: #004080;
+    .img-tech {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 5px;
+    }
+    .badge-architecture {
+      background-color: #6f42c1;
+    }
+    .comparison-table th {
+      background-color: var(--primary);
+      color: white;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg">
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Guía Web</a>
-      <div class="collapse navbar-collapse">
+      <a class="navbar-brand fw-bold" href="index.html">Guía Web</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="webapis.html">Web APIs</a></li>
-          <li class="nav-item"><a class="nav-link" href="microservicios.html">Microservicios</a></li>
+          <li class="nav-item"><a class="nav-link active" href="microservicios.html">Microservicios</a></li>
           <li class="nav-item"><a class="nav-link" href="webapi-dev.html">Desarrollo API</a></li>
           <li class="nav-item"><a class="nav-link" href="contenedores.html">Contenedores</a></li>
           <li class="nav-item"><a class="nav-link" href="nube.html">Aplicaciones en la Nube</a></li>
@@ -40,40 +63,305 @@
     </div>
   </nav>
 
-  <div class="container content">
-    <h1>¿Qué son los Microservicios?</h1>
-    <p>Los microservicios son una arquitectura de software donde las aplicaciones se construyen como un conjunto de servicios pequeños, independientes y desplegables de forma individual. Cada microservicio está centrado en una funcionalidad específica del negocio.</p>
+  <header class="hero text-white py-5 mb-5">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Arquitectura de Microservicios</h1>
+      <p class="lead">Domina el diseño de sistemas escalables y resilientes</p>
+    </div>
+  </header>
 
-<img src="https://www.arrobasolutions.com/wp-content/uploads/2021/10/Arquitectura-de-microservicios-que-es-y-cuales-son-sus-ventajas.jpg" alt="Arquitectura de microservicios" class="img-fluid rounded my-3 shadow">
+  <div class="container">
+    <section class="mb-5">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="mb-0">¿Qué son los Microservicios?</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="lead">Un enfoque arquitectónico donde las aplicaciones se componen de <strong>servicios pequeños, independientes</strong> y desplegables individualmente.</p>
+              
+              <div class="mt-4">
+                <h4>Características Clave</h4>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <span class="badge bg-primary me-2">1</span>
+                    <strong>Autonomía:</strong> Cada servicio es independiente
+                  </li>
+                  <li class="list-group-item">
+                    <span class="badge bg-primary me-2">2</span>
+                    <strong>Especialización:</strong> Un servicio = una función
+                  </li>
+                  <li class="list-group-item">
+                    <span class="badge bg-primary me-2">3</span>
+                    <strong>Comunicación vía API:</strong> HTTP/REST o mensajería
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <img src="https://www.arrobasolutions.com/wp-content/uploads/2021/10/Arquitectura-de-microservicios-que-es-y-cuales-son-sus-ventajas.jpg" alt="Arquitectura Microservicios" class="img-fluid img-tech">
+              <div class="ratio ratio-16x9 mt-3">
+                <iframe src="https://www.youtube.com/embed/99YMeCBk3jw" title="Microservicios explicados" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2>Ventajas de los microservicios</h2>
-    <ul>
-      <li><strong>Escalabilidad:</strong> Se pueden escalar individualmente según la demanda.</li>
-      <li><strong>Desarrollo independiente:</strong> Equipos pueden trabajar en distintos servicios sin interferencias.</li>
-      <li><strong>Facilidad de mantenimiento:</strong> Los errores se aíslan más fácilmente.</li>
-    </ul>
+    <section class="mb-5">
+      <div class="card">
+        <div class="card-header bg-success text-white">
+          <h2 class="mb-0">Monolito vs Microservicios</h2>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table comparison-table">
+              <thead>
+                <tr>
+                  <th>Aspecto</th>
+                  <th>Monolito</th>
+                  <th>Microservicios</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Estructura</strong></td>
+                  <td>Única unidad</td>
+                  <td>Servicios independientes</td>
+                </tr>
+                <tr>
+                  <td><strong>Escalabilidad</strong></td>
+                  <td>Vertical (todo o nada)</td>
+                  <td>Horizontal (por servicio)</td>
+                </tr>
+                <tr>
+                  <td><strong>Despliegue</strong></td>
+                  <td>Complejo (todo el sistema)</td>
+                  <td>Independiente por servicio</td>
+                </tr>
+                <tr>
+                  <td><strong>Tecnologías</strong></td>
+                  <td>Homogéneas</td>
+                  <td>Heterogéneas (polyglot)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Problemas del Monolito</h5>
+                  <ul>
+                    <li>Acoplamiento fuerte entre componentes</li>
+                    <li>Dificultad para escalar</li>
+                    <li>Implementaciones riesgosas</li>
+                    <li>Barreras para innovación tecnológica</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Ejemplo Práctico</h5>
+                  <p><strong>Tienda en línea:</strong></p>
+                  <ul>
+                    <li><span class="badge bg-info">Servicio Usuarios</span></li>
+                    <li><span class="badge bg-info">Servicio Catálogo</span></li>
+                    <li><span class="badge bg-info">Servicio Pagos</span></li>
+                    <li><span class="badge bg-info">Servicio Envíos</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2>Desventajas</h2>
-    <ul>
-      <li>Mayor complejidad en la comunicación entre servicios.</li>
-      <li>Requiere herramientas y procesos adicionales para orquestar servicios.</li>
-    </ul>
+    <section class="mb-5">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">
+          <h2 class="mb-0">Comunicación y Organización</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h4>Patrones de Comunicación</h4>
+              <div class="accordion" id="commsAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#syncComm">
+                      Síncrona (HTTP/REST)
+                    </button>
+                  </h2>
+                  <div id="syncComm" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                      <pre><code>GET /api/users/123
+Accept: application/json</code></pre>
+                      <p class="mt-2"><strong>Ventaja:</strong> Simple, directo</p>
+                      <p><strong>Desventaja:</strong> Acoplamiento temporal</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#asyncComm">
+                      Asíncrona (Mensajería)
+                    </button>
+                  </h2>
+                  <div id="asyncComm" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                      <p><strong>Ejemplo:</strong> RabbitMQ, Kafka</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h4>Organización de Equipos</h4>
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Modelo Spotify</h5>
+                  <ul>
+                    <li><strong>Squads:</strong> Equipos multidisciplinarios</li>
+                    <li><strong>Tribes:</strong> Grupos de squads relacionados</li>
+                    <li><strong>Chapter:</strong> Especialistas por área</li>
+                    <li><strong>Guild:</strong> Comunidades de interés</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2>Ejemplo</h2>
-    <p>En una tienda en línea, podría haber un microservicio para gestionar productos, otro para pagos y otro para usuarios. Cada uno es independiente y se comunica a través de APIs.</p>
-    
-    <h3 class="mt-4">Video: Microservicios vs Monolitos</h3>
-    <div class="ratio ratio-16x9 my-4">
-      <iframe 
-        src="https://www.youtube.com/embed/99YMeCBk3jw?si=5QOGarckwX4RVyhD" 
-        title="Microservicios explicados" 
-        allowfullscreen>
-      </iframe>
-    </div>  
-</div>
+    <section class="mb-5">
+      <div class="card">
+        <div class="card-header bg-info text-white">
+          <h2 class="mb-0">Herramientas Esenciales</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <img src="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png" alt="Docker" style="height: 50px;" class="mb-3">
+                  <h5>Docker</h5>
+                  <p>Contenedores ligeros para empaquetar microservicios</p>
+                  <pre class="bg-light p-2"><code>docker run -p 8080:80 mi-servicio</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/723px-Kubernetes_logo_without_workmark.svg.png" alt="Kubernetes" style="height: 50px;" class="mb-3">
+                  <h5>Kubernetes</h5>
+                  <p>Orquestación de contenedores a escala</p>
+                  <pre class="bg-light p-2"><code>kubectl apply -f deployment.yml</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <img src="https://yt3.googleusercontent.com/ytc/AIdro_kfNQn9tAHDM_p_dFW8FrHLZJETiQVm5BV52Yzdfpw7UFU=s900-c-k-c0x00ffffff-no-rj" alt="NGINX" style="height: 50px;" class="mb-3">
+                  <h5>API Gateway</h5>
+                  <p>Punto único de entrada para clientes</p>
+                  <pre class="bg-light p-2"><code>location /users {
+  proxy_pass http://servicio-usuarios;
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <footer class="footer">
-    <p>&copy; 2025 Jennifer - Proyecto Web</p>
+          <div class="row mt-4">
+            <div class="col-md-12">
+              <h4 class="text-center">Flujo DevOps con Microservicios</h4>
+              <img src="https://media.licdn.com/dms/image/v2/D4E12AQGSQ4JF8M2aGw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1679668527602?e=2147483647&v=beta&t=Rdl9B7KhUJSdMBhkbXEwuLiAGOoiNCSZ7GPZwyfA1iQ" alt="DevOps Pipeline" class="img-fluid">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          <h2 class="mb-0">¿Cuándo Usar Microservicios?</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Escenarios Ideales</h5>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <span class="badge bg-success me-2">✔</span>
+                      Sistemas complejos con múltiples equipos
+                    </li>
+                    <li class="list-group-item">
+                      <span class="badge bg-success me-2">✔</span>
+                      Requerimientos de escalamiento diferenciado
+                    </li>
+                    <li class="list-group-item">
+                      <span class="badge bg-success me-2">✔</span>
+                      Necesidad de deploy independiente
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Advertencias</h5>
+                  <div class="alert alert-warning">
+                    <strong>No son para todo:</strong> Agregan complejidad operacional
+                  </div>
+                  <ul>
+                    <li>Requieren madurez DevOps</li>
+                    <li>Overhead en monitoreo</li>
+                    <li>Retos en consistencia de datos</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Recursos Adicionales</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://kubernetes.io/es/docs/home/" class="text-white">Documentación Kubernetes</a></li>
+            <li><a href="https://www.paradigmadigital.com/dev/patrones-arquitectura-microservicios-que-son-ventajas/" class="text-white">Patrones de Microservicios</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h5>Enlaces del Proyecto</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://github.com/jenncast01/Proyecto2" class="text-white">Repositorio GitHub</a></li>
+            <li><a href="https://jenncast01.github.io/Proyecto2/" class="text-white">Sitio en Producción</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="text-center mb-0">&copy; 2025 Jennifer - Proyecto Web</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

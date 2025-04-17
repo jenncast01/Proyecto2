@@ -3,78 +3,409 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aplicaciones en la Nube</title>
+  <title>Aplicaciones en la Nube | Guía Web</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #004080;
+      --secondary: #6c757d;
+    }
     body {
-      background-color: #f2f6fc;
       font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
     }
     .navbar {
-      background-color: #004080;
+      background-color: var(--primary);
     }
-    .navbar-brand, .nav-link, .footer {
-      color: white !important;
+    .hero {
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('https://source.unsplash.com/1600x900/?cloud,server,technology') no-repeat center center;
+      background-size: cover;
+      color: white;
     }
-    .content {
+    .card {
+      border: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .badge-custom {
+      background-color: var(--primary);
+    }
+    .tab-content {
+      border-left: 1px solid #dee2e6;
+      border-right: 1px solid #dee2e6;
+      border-bottom: 1px solid #dee2e6;
       padding: 2rem;
     }
-    h1, h2 {
-      color: #004080;
+    .img-tech {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 5px;
+    }
+    pre {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+    .cloud-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .service-model {
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Guía Web</a>
-      <div class="collapse navbar-collapse">
+      <a class="navbar-brand fw-bold" href="index.html">Guía Web</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="webapis.html">Web APIs</a></li>
           <li class="nav-item"><a class="nav-link" href="microservicios.html">Microservicios</a></li>
           <li class="nav-item"><a class="nav-link" href="webapi-dev.html">Desarrollo API</a></li>
           <li class="nav-item"><a class="nav-link" href="contenedores.html">Contenedores</a></li>
-          <li class="nav-item"><a class="nav-link" href="nube.html">Aplicaciones en la Nube</a></li>
+          <li class="nav-item"><a class="nav-link active" href="nube.html">Aplicaciones en la Nube</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container content">
-    <h1>Aplicaciones en la Nube</h1>
-    <p>Las aplicaciones en la nube son programas que se ejecutan en servidores remotos accesibles por Internet. No necesitas instalarlas localmente, y puedes acceder a ellas desde cualquier lugar y dispositivo.</p>
+  <header class="hero text-white py-5 mb-5">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Aplicaciones en la Nube</h1>
+      <p class="lead">Transforma tu forma de trabajar con soluciones accesibles desde cualquier lugar</p>
+    </div>
+  </header>
 
-<img src="https://wac-cdn.atlassian.com/dam/jcr:0f791cd5-c80c-4641-b10c-09c9c9b9a8b7/Cloud%20computing.png?cdnVersion=2635" alt="Servidores en la nube" class="img-fluid rounded my-3 shadow">
+  <div class="container">
+    <section class="mb-5">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="mb-0">¿Qué son las Aplicaciones en la Nube?</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="lead">Las aplicaciones en la nube son programas que se ejecutan en servidores remotos accesibles por Internet. No necesitas instalarlas localmente, y puedes acceder a ellas desde cualquier lugar y dispositivo.</p>
+              
+              <div class="mt-4">
+                <h4>Características principales</h4>
+                <ul>
+                  <li>Alojamiento en infraestructura remota</li>
+                  <li>Acceso multiplataforma</li>
+                  <li>Actualizaciones automáticas</li>
+                  <li>Pago por uso o suscripción</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <img src="https://wac-cdn.atlassian.com/dam/jcr:0f791cd5-c80c-4641-b10c-09c9c9b9a8b7/Cloud%20computing.png?cdnVersion=2635" alt="Servidores en la nube" class="img-fluid img-tech">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2>Ventajas</h2>
-    <ul>
-      <li><strong>Accesibilidad:</strong> Disponible en cualquier lugar con conexión a Internet.</li>
-      <li><strong>Escalabilidad:</strong> Se ajustan automáticamente a la demanda.</li>
-      <li><strong>Mantenimiento:</strong> El proveedor de nube se encarga de actualizaciones y soporte.</li>
-    </ul>
+    <section id="advantages" class="mb-5">
+      <div class="card">
+        <div class="card-header bg-success text-white">
+          <h2 class="mb-0">Ventajas de las Aplicaciones en la Nube</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card h-100 text-center">
+                <div class="card-body">
+                  <div class="cloud-icon">🌐</div>
+                  <h4>Accesibilidad</h4>
+                  <p>Disponible en cualquier lugar con conexión a Internet desde múltiples dispositivos.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 text-center">
+                <div class="card-body">
+                  <div class="cloud-icon">📈</div>
+                  <h4>Escalabilidad</h4>
+                  <p>Se ajustan automáticamente a la demanda con recursos elásticos.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100 text-center">
+                <div class="card-body">
+                  <div class="cloud-icon">🛠️</div>
+                  <h4>Mantenimiento</h4>
+                  <p>El proveedor de nube se encarga de actualizaciones, seguridad y soporte.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-info text-white">
+                  Más beneficios
+                </div>
+                <div class="card-body">
+                  <ul>
+                    <li><strong>Reducción de costos:</strong> No necesitas invertir en hardware costoso</li>
+                    <li><strong>Colaboración mejorada:</strong> Multiples usuarios pueden trabajar simultáneamente</li>
+                    <li><strong>Recuperación ante desastres:</strong> Copias de seguridad automáticas</li>
+                    <li><strong>Sostenibilidad:</strong> Uso más eficiente de recursos compartidos</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-warning text-dark">
+                  Ejemplos comunes
+                </div>
+                <div class="card-body">
+                  <ul>
+                    <li><strong>Google Drive:</strong> Almacenamiento y colaboración</li>
+                    <li><strong>Slack:</strong> Comunicación empresarial</li>
+                    <li><strong>Salesforce:</strong> CRM en la nube</li>
+                    <li><strong>Trello:</strong> Gestión de proyectos</li>
+                    <li><strong>Zoom:</strong> Videoconferencias</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2>Modelos de servicio</h2>
-    <ul>
-      <li><strong>IaaS (Infraestructura como Servicio):</strong> Ofrece servidores virtuales, redes, almacenamiento (ej. AWS EC2).</li>
-      <li><strong>PaaS (Plataforma como Servicio):</strong> Proporciona herramientas para desarrollar apps sin preocuparse por la infraestructura (ej. Heroku).</li>
-      <li><strong>SaaS (Software como Servicio):</strong> Aplicaciones completas disponibles vía navegador (ej. Gmail, Google Docs).</li>
-    </ul>
+    <section id="service-models" class="mb-5">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">
+          <h2 class="mb-0">Modelos de Servicio en la Nube</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="service-model">
+                <h3>IaaS <span class="badge bg-primary">Infraestructura como Servicio</span></h3>
+                <p>Ofrece servidores virtuales, redes, almacenamiento. Tú controlas el sistema operativo y aplicaciones.</p>
+                <ul>
+                  <li>Ejemplos: AWS EC2, Google Compute Engine, Azure VMs</li>
+                  <li>Para: Migraciones, entornos flexibles</li>
+                  <li>Control: Alto</li>
+                  <li>Mantenimiento: Medio</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-model">
+                <h3>PaaS <span class="badge bg-success">Plataforma como Servicio</span></h3>
+                <p>Proporciona herramientas para desarrollar apps sin preocuparse por la infraestructura subyacente.</p>
+                <ul>
+                  <li>Ejemplos: Heroku, Google App Engine, AWS Elastic Beanstalk</li>
+                  <li>Para: Desarrolladores que quieren enfocarse en código</li>
+                  <li>Control: Medio</li>
+                  <li>Mantenimiento: Bajo</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-model">
+                <h3>SaaS <span class="badge bg-info">Software como Servicio</span></h3>
+                <p>Aplicaciones completas disponibles vía navegador, listas para usar sin instalación.</p>
+                <ul>
+                  <li>Ejemplos: Gmail, Google Docs, Salesforce, Zoom</li>
+                  <li>Para: Usuarios finales que necesitan aplicaciones</li>
+                  <li>Control: Bajo</li>
+                  <li>Mantenimiento: Ninguno</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row mt-4">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header bg-dark text-white">
+                  Comparativa de Modelos
+                </div>
+                <div class="card-body">
+                  <img src="https://blog.internexa.com/hs-fs/hubfs/Blog/Que%20es%20IaaS_PaaS_SaaS/Computaci%C3%B3n-en-la-nube-Qu%C3%A9-es-IaaS-PaaS-y-SaaS-03.png?width=925&name=Computaci%C3%B3n-en-la-nube-Qu%C3%A9-es-IaaS-PaaS-y-SaaS-03.png" alt="Comparación IaaS PaaS SaaS" class="img-fluid img-tech">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2>Ejemplo</h2>
-    <p>Google Drive es una aplicación en la nube que permite guardar, compartir y editar archivos en tiempo real desde cualquier dispositivo.</p>
-   
-    <h3 class="mt-4">Video: Qué es la computación en la nube</h3>
-    <div class="ratio ratio-16x9 my-4">
-      <iframe 
-        src="https://www.youtube.com/embed/MCKdahh2lSo?si=cPoLqDBKT82usmKG" 
-        title="Cloud Computing" 
-        allowfullscreen>
-      </iframe>
-    </div>  
-</div>
+    <section id="implementation" class="mb-5">
+      <div class="card">
+        <div class="card-header bg-info text-white">
+          <h2 class="mb-0">Implementación en la Nube</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Tipos de nube</h3>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h4><span class="badge bg-primary">Pública</span></h4>
+                  <p>Infraestructura compartida, pago por uso. Ejemplos: AWS, Azure, Google Cloud.</p>
+                  <ul>
+                    <li>Ventaja: Costos más bajos</li>
+                    <li>Desventaja: Menos personalización</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h4><span class="badge bg-success">Privada</span></h4>
+                  <p>Infraestructura dedicada a una sola organización.</p>
+                  <ul>
+                    <li>Ventaja: Mayor seguridad y control</li>
+                    <li>Desventaja: Costos más altos</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h4><span class="badge bg-warning">Híbrida</span></h4>
+                  <p>Combinación de nubes públicas y privadas.</p>
+                  <ul>
+                    <li>Ventaja: Flexibilidad óptima</li>
+                    <li>Desventaja: Mayor complejidad</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h3>Proveedores principales</h3>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Proveedor</th>
+                      <th>Servicios destacados</th>
+                      <th>Cuota de mercado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>AWS</td>
+                      <td>EC2, S3, Lambda</td>
+                      <td>33%</td>
+                    </tr>
+                    <tr>
+                      <td>Microsoft Azure</td>
+                      <td>Azure VMs, Active Directory</td>
+                      <td>22%</td>
+                    </tr>
+                    <tr>
+                      <td>Google Cloud</td>
+                      <td>Compute Engine, BigQuery</td>
+                      <td>11%</td>
+                    </tr>
+                    <tr>
+                      <td>IBM Cloud</td>
+                      <td>Watson, Cloud Foundry</td>
+                      <td>5%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <div class="alert alert-primary mt-3">
+                <strong>Multi-nube:</strong> Estrategia que usa múltiples proveedores para evitar dependencia de un solo vendor.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <footer class="footer">
-    <p>&copy; 2025 Jennifer - Proyecto Web</p>
+    <section class="mb-5">
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          <h2 class="mb-0">Video: Qué es la computación en la nube</h2>
+        </div>
+        <div class="card-body">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/MCKdahh2lSo?si=cPoLqDBKT82usmKG" title="Cloud Computing" allowfullscreen></iframe>
+          </div>
+          
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-primary text-white">
+                  Recursos para aprender
+                </div>
+                <div class="card-body">
+                  <ul>
+                    <li><a href="https://aws.amazon.com/es/getting-started/" target="_blank">AWS Getting Started</a></li>
+                    <li><a href="https://learn.microsoft.com/es-es/training/azure/" target="_blank">Microsoft Learn Azure</a></li>
+                    <li><a href="https://cloud.google.com/learn" target="_blank">Google Cloud Training</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-success text-white">
+                  Certificaciones recomendadas
+                </div>
+                <div class="card-body">
+                  <ol>
+                    <li>AWS Certified Cloud Practitioner</li>
+                    <li>Microsoft Certified: Azure Fundamentals</li>
+                    <li>Google Associate Cloud Engineer</li>
+                    <li>Cloud Security Alliance: CCSK</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Recursos Adicionales</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://docs.aws.amazon.com/es_es/" class="text-white">Documentación AWS</a></li>
+            <li><a href="https://azure.microsoft.com/es-mx/resources/research/developer-guide-to-azure" class="text-white">Guías de Azure</a></li>
+            <li><a href="https://adpmx.com/casos-de-exito-en-la-adopcion-de-soluciones-en-la-nube/" class="text-white">Casos de éxito en la nube</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h5>Enlaces del Proyecto</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://github.com/jenncast01/Proyecto2" class="text-white">Repositorio GitHub</a></li>
+            <li><a href="https://jenncast01.github.io/Proyecto2/" class="text-white">Sitio en Producción</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="text-center mb-0">&copy; 2025 Jennifer - Proyecto Web</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

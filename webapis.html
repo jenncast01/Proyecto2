@@ -3,78 +3,464 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web APIs</title>
+  <title>Web APIs Completo | Guía Web</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #004080;
+      --secondary: #6c757d;
+    }
     body {
-      background-color: #f2f6fc;
       font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
     }
     .navbar {
-      background-color: #004080;
+      background-color: var(--primary);
     }
-    .navbar-brand, .nav-link, .footer {
-      color: white !important;
+    .hero {
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('https://source.unsplash.com/1600x900/?code,api') no-repeat center center;
+  background-size: cover;
+  color: white;
+}
+    .card {
+      border: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
     }
-    .content {
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .badge-custom {
+      background-color: var(--primary);
+    }
+    .tab-content {
+      border-left: 1px solid #dee2e6;
+      border-right: 1px solid #dee2e6;
+      border-bottom: 1px solid #dee2e6;
       padding: 2rem;
     }
-    h1, h2 {
-      color: #004080;
+    .img-tech {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 5px;
+    }
+    pre {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg">
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Guía Web</a>
-      <div class="collapse navbar-collapse">
+      <a class="navbar-brand fw-bold" href="index.html">Guía Web</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="webapis.html">Web APIs</a></li>
-          <li class="nav-item"><a class="nav-link" href="microservicios.html">Microservicios</a></li>
-          <li class="nav-item"><a class="nav-link" href="webapi-dev.html">Desarrollo API</a></li>
-          <li class="nav-item"><a class="nav-link" href="contenedores.html">Contenedores</a></li>
-          <li class="nav-item"><a class="nav-link" href="nube.html">Aplicaciones en la Nube</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#uri">URI</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rest">REST</a></li>
+          <li class="nav-item"><a class="nav-link" href="#soap">SOAP</a></li>
+          <li class="nav-item"><a class="nav-link" href="#jwt">JWT</a></li>
+          <li class="nav-item"><a class="nav-link" href="#http">HTTP</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container content">
-    <h1>¿Qué son las Web APIs?</h1>
-    <p>Las Web APIs (Interfaces de Programación de Aplicaciones web) son conjuntos de definiciones y protocolos que permiten que diferentes aplicaciones se comuniquen entre sí a través de la web. Son esenciales para el desarrollo moderno de software, ya que permiten la integración entre plataformas, sistemas y servicios.</p>
-
-<img src="https://miro.medium.com/v2/resize:fit:612/1*iau078k09YDCbE1KuuzYtw.jpeg" alt="Diagrama de una API" class="img-fluid rounded my-3 shadow">
-
-    <h2>Características principales</h2>
-    <ul>
-      <li><strong>Interoperabilidad:</strong> Las Web APIs permiten que distintos sistemas trabajen juntos sin importar el lenguaje de programación.</li>
-      <li><strong>Basadas en HTTP:</strong> Utilizan los métodos GET, POST, PUT y DELETE para comunicarse.</li>
-      <li><strong>Formato de datos:</strong> Generalmente se usan formatos como JSON o XML.</li>
-    </ul>
-
-    <h2>Ejemplos comunes</h2>
-    <ul>
-      <li>APIs de redes sociales (Facebook, Twitter)</li>
-      <li>APIs de clima, como OpenWeatherMap</li>
-      <li>APIs de mapas, como Google Maps</li>
-    </ul>
-
-    <h2>¿Por qué son importantes?</h2>
-    <p>Las Web APIs son clave en el desarrollo de aplicaciones modernas. Gracias a ellas, los desarrolladores pueden aprovechar funciones de terceros sin tener que desarrollarlas desde cero, ahorrando tiempo y recursos.</p>
-    
-    <h3 class="mt-4">Video: ¿Cómo funcionan las APIs?</h3>
-    <div class="ratio ratio-16x9 my-4">
-      <iframe 
-        src="https://www.youtube.com/embed/u2Ms34GE14U?si=txmeazg5rUXLu0uK" 
-        title="Explicación de APIs" 
-        allowfullscreen>
-      </iframe>
+  <header class="hero text-white py-5 mb-5">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Web APIs: Guía Completa</h1>
+      <p class="lead">Domina los protocolos y tecnologías para integración de sistemas</p>
     </div>
-</div>
+  </header>
 
-  <footer class="footer">
-    <p>&copy; 2025 Jennifer - Proyecto Web</p>
+  <div class="container">
+
+    <section id="uri" class="mb-5">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2 class="mb-0">URI/URL: Identificación de Recursos</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Definición</h3>
+              <p>Un <strong>URI (Uniform Resource Identifier)</strong> es una cadena que identifica un recurso en la web de manera única.</p>
+              
+              <h4 class="mt-4">Componentes</h4>
+              <table class="table table-bordered">
+                <thead class="table-light">
+                  <tr>
+                    <th>Parte</th>
+                    <th>Ejemplo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>esquema</code></td>
+                    <td><span class="badge bg-success">https</span>, <span class="badge bg-info">ftp</span>, <span class="badge bg-warning">mailto</span></td>
+                  </tr>
+                  <tr>
+                    <td><code>host</code></td>
+                    <td>api.ejemplo.com</td>
+                  </tr>
+                  <tr>
+                    <td><code>ruta</code></td>
+                    <td>/v1/usuarios</td>
+                  </tr>
+                  <tr>
+                    <td><code>query</code></td>
+                    <td>?page=2&sort=name</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-6">
+              <div class="ratio ratio-16x9 mb-4">
+                <iframe src="https://www.youtube.com/embed/u2Ms34GE14U" title="Explicación URIs" allowfullscreen></iframe>
+              </div>
+              <img src="https://www.ionos.mx/digitalguide/fileadmin/DigitalGuide/Schaubilder/EN-uri.png" alt="Estructura URI" class="img-fluid img-tech">
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5>Ejemplo Completo</h5>
+                  <pre><code>https://admin:pass123@api.ejemplo.com:8080/v1/users?role=admin#section2</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5>Casos Especiales</h5>
+                  <ul>
+                    <li><strong>Puertos no estándar</strong>: :8080, :3000</li>
+                    <li><strong>Codificación URL</strong>: Espacios → %20</li>
+                    <li><strong>DocumentRoot</strong>: /var/www/html</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rest" class="mb-5">
+      <div class="card">
+        <div class="card-header bg-success text-white">
+          <h2 class="mb-0">API REST: Estilo Arquitectónico</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Principios Fundamentales</h3>
+              <div class="accordion" id="restPrinciples">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#uniformInterface">
+                      Interfaz Uniforme
+                    </button>
+                  </h2>
+                  <div id="uniformInterface" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                      <ul>
+                        <li>Identificación única de recursos</li>
+                        <li>Manipulación a través de representaciones</li>
+                        <li>Mensajes autodescriptivos</li>
+                        <li>Hipermedia como motor de estado (HATEOAS)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgoNgku8MTdav4gIiWDW4v2f2tjZT89lKIVeXU0dfzyc-sbJqbRxUshzE1RlcQ_EUwrnvtNfvzoJPONCjJEUGUpTtzAHutO2giW93HACzsOqnHJgBiY7fsJ2G0ELRxbNiHWbvZq86Z_4o/w1200-h630-p-k-no-nu/Arquitectura-Depliegue.png" alt="Arquitectura REST" class="img-fluid img-tech">
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <h4>Métodos HTTP</h4>
+              <table class="table table-bordered">
+                <thead class="table-light">
+                  <tr>
+                    <th>Método</th>
+                    <th>CRUD</th>
+                    <th>Idempotente</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="badge bg-primary">GET</span></td>
+                    <td>Read</td>
+                    <td>✔</td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge bg-success">POST</span></td>
+                    <td>Create</td>
+                    <td>✖</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-6">
+              <h4>Ejemplo de Response</h4>
+              <pre><code class="language-json">{
+  "data": {
+    "id": 123,
+    "name": "Ejemplo REST",
+    "links": {
+      "self": "/api/v1/resources/123",
+      "related": "/api/v1/resources/123/subresources"
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="soap" class="mb-5">
+      <div class="card">
+        <div class="card-header bg-warning text-dark">
+          <h2 class="mb-0">SOAP: Protocolo Empresarial</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Características Clave</h3>
+              <ul>
+                <li><strong>Basado en XML</strong>: Estructura estricta</li>
+                <li><strong>Protocolo independiente</strong>: HTTP, SMTP, etc.</li>
+                <li><strong>WS-* Standards</strong>: Seguridad, transacciones</li>
+                <li><strong>Contract-First</strong>: WSDL define el contrato</li>
+              </ul>
+              
+              <div class="mt-4">
+                <h4>Ventajas vs REST</h4>
+                <ul>
+                  <li>Seguridad integrada (WS-Security)</li>
+                  <li>Transacciones ACID</li>
+                  <li>Mejor para sistemas legacy</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <img src="https://developrogramming.com/wp-content/uploads/2020/05/PresentacionSOAP-1-1024x576.jpg" alt="Arquitectura SOAP" class="img-fluid img-tech mb-3">
+              
+              <h4>Ejemplo de Mensaje</h4>
+              <pre><code class="language-xml">&lt;soap:Envelope&gt;
+  &lt;soap:Header&gt;
+    &lt;wsse:Security&gt;...&lt;/wsse:Security&gt;
+  &lt;/soap:Header&gt;
+  &lt;soap:Body&gt;
+    &lt;GetUserRequest&gt;
+      &lt;UserId&gt;123&lt;/UserId&gt;
+    &lt;/GetUserRequest&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="jwt" class="mb-5">
+      <div class="card">
+        <div class="card-header bg-info text-white">
+          <h2 class="mb-0">JWT: Autenticación Moderna</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-5">
+              <h3>Estructura</h3>
+              <p class="text-center text-muted">header.payload.signature</p>
+              
+              <div class="card mt-3">
+                <div class="card-header">
+                  <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-bs-toggle="tab" href="#headerTab">Header</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-bs-toggle="tab" href="#payloadTab">Payload</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-body tab-content">
+                  <div class="tab-pane active" id="headerTab">
+                    <pre><code class="language-json">{
+  "alg": "HS256",
+  "typ": "JWT"
+}</code></pre>
+                  </div>
+                  <div class="tab-pane" id="payloadTab">
+                    <pre><code class="language-json">{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "iat": 1516239022
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="ratio ratio-16x9 mb-3">
+                <iframe src="https://www.youtube.com/embed/mbsmsi7l3r4" title="JWT explicado" allowfullscreen></iframe>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <h5>Implementación Node.js</h5>
+                  <pre><code class="language-javascript">const jwt = require('jsonwebtoken');
+const token = jwt.sign(
+  { userId: 123 }, 
+  'clave-secreta',
+  { expiresIn: '1h' }
+);</code></pre>
+                </div>
+                <div class="col-md-6">
+                  <h5>Flujo de Autenticación</h5>
+                  <ol>
+                    <li>Cliente envía credenciales</li>
+                    <li>Servidor genera JWT</li>
+                    <li>Cliente usa JWT en headers</li>
+                    <li>Servidor valida firma</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="http">
+      <div class="card">
+        <div class="card-header bg-dark text-white">
+          <h2 class="mb-0">Protocolo HTTP: Fundamentos</h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Códigos de Estado</h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card bg-light mb-3">
+                    <div class="card-header bg-success text-white">2xx Éxito</div>
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li><strong>200</strong> OK</li>
+                        <li><strong>201</strong> Created</li>
+                        <li><strong>204</strong> No Content</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card bg-light mb-3">
+                    <div class="card-header bg-danger text-white">4xx Cliente</div>
+                    <div class="card-body">
+                      <ul class="list-unstyled">
+                        <li><strong>400</strong> Bad Request</li>
+                        <li><strong>401</strong> Unauthorized</li>
+                        <li><strong>404</strong> Not Found</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h3>Cabeceras Importantes</h3>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Cabecera</th>
+                    <th>Ejemplo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Authorization</td>
+                    <td>Bearer xyz.abc.123</td>
+                  </tr>
+                  <tr>
+                    <td>Content-Type</td>
+                    <td>application/json</td>
+                  </tr>
+                  <tr>
+                    <td>Cache-Control</td>
+                    <td>max-age=3600</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="row mt-4">
+            <div class="col-md-12">
+              <h3>Ejemplo de Comunicación</h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <h5>Request</h5>
+                  <pre><code>GET /api/v1/users HTTP/1.1
+Host: api.ejemplo.com
+Accept: application/json
+Authorization: Bearer eyJhbGci...</code></pre>
+                </div>
+                <div class="col-md-6">
+                  <h5>Response</h5>
+                  <pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": [...]
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Recursos Adicionales</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Documentación HTTP</a></li>
+            <li><a href="#" class="text-white">Especificación JWT</a></li>
+            <li><a href="#" class="text-white">Buenas prácticas REST</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h5>Enlaces del Proyecto</h5>
+          <ul class="list-unstyled">
+            <li><a href="https://github.com/jenncast01/Proyecto2" class="text-white">Repositorio GitHub</a></li>
+            <li><a href="https://jenncast01.github.io/Proyecto2/" class="text-white">Sitio en Producción</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="text-center mb-0">&copy; 2025 Jennifer - Proyecto Web</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
